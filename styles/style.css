@@ -8,7 +8,19 @@ html {
   block-size: 100%;
 }
 
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+
 .page {
+  display: grid;
+  place-content: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -35,4 +47,237 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.content {
+  margin: 133px 30px;
+  gap: 30px;
+  display: flex;
+  width: 1140px;
+}
+
+.result {
+  align-self: flex-end;
+}
+
+.result__video-container {
+  position: relative;
+  width: 711px;
+  height: 386px;
+  margin-bottom: 16px;
+}
+
+.result__video {
+  width: 711px;
+  height: 386px;
+  object-fit: cover;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+fieldset {
+  border: none;
+}
+
+.search-form__label {
+  display: flex;
+}
+
+.search-form__textfield {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  background-color:  transparent;
+  color: white;
+  width: 225px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: none;
+  border-right: none;
+  padding: 3px 0;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form__textfield:active {
+  outline: 1px solid white;
+  border: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+ .search-form__textfield:focus-visible {
+  outline: none;
+}  
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__label:focus-visible {
+  outline: 1px solid white;
+}
+
+.search-form__pseudo-checkbox {
+  border: 1px solid white;
+  height: 19px;
+  width: 19px;
+  cursor: pointer;
+}
+
+.search-form__label-text {
+  margin-left: 5px;
+}
+
+.search-form__label-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.button {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: center;
+  color: white;
+  background-color:  transparent;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  margin: 1px 0 0 1px;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  padding: 6px 73.5px;
+}
+
+.search-form__submit-button:active {
+  background-color: #545050;
+}
+
+.search-form__submit-button:hover {
+  text-decoration: underline;
+}
+
+.search-form__submit-button:focus {
+  outline: none;
+}
+.search-form__submit-button:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+.title {
+  font-family: "Oswald";
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70.5px;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__details {
+  width: 100%;
+}
+
+.content__list {
+  position: relative;
+  overflow-y: scroll;
+  height: 298px;
+  scrollbar-width: none;
+  margin-top: 26px;
+}
+
+.content__list-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin: 2px
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid white;
+}
+
+.content__video-card-title {
+  text-transform: uppercase;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: start;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+
+}
+
+.content__video-card-description-container {
+  width: 100%;
+  height: 100%;
+}
+
+.more-button {
+  width: 100%;
+  padding: 6px 0;
 }
