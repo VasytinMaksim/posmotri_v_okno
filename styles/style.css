@@ -219,8 +219,8 @@ fieldset {
 
 .content__list {
   position: relative;
-  overflow-y: scroll;
   height: 298px;
+  overflow-y: scroll;
   scrollbar-width: none;
   margin-top: 26px;
 }
