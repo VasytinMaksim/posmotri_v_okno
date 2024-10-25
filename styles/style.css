@@ -53,7 +53,7 @@ ol {
   margin: 133px 30px;
   gap: 30px;
   display: flex;
-  width: 1140px;
+  min-width: 1140px;
 }
 
 .result {
@@ -62,14 +62,14 @@ ol {
 
 .result__video-container {
   position: relative;
-  width: 711px;
-  height: 386px;
+  inline-size: 711px;
+  block-size: 386px;
   margin-bottom: 16px;
 }
 
 .result__video {
-  width: 711px;
-  height: 386px;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
 }
 
@@ -80,7 +80,7 @@ ol {
   gap: 40px;
 }
 
-fieldset {
+.search-form__fieldset {
   border: none;
 }
 
@@ -94,7 +94,7 @@ fieldset {
   font-weight: 400;
   background-color:  transparent;
   color: white;
-  width: 225px;
+  inline-size: 225px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   border-left: none;
@@ -140,23 +140,41 @@ fieldset {
 
 .search-form__pseudo-checkbox {
   border: 1px solid white;
-  height: 19px;
-  width: 19px;
+  inline-size: 19px;
+  block-size: 19px;
   cursor: pointer;
+
+  /* Выровнил содержимое обертки чекбоксов,
+  чтобы верхнее и нижнее расстояние фокуса были однотипными свойством margin,
+  Вы указали эту ошибку на 88 строке кода, там не смог исправить, так как тогда
+  получали все элементы отступ, а не только чекбоксы */
+
+  margin: 2px 0;
 }
 
 .search-form__label-text {
   margin-left: 5px;
 }
 
-.search-form__label-text:hover {
+/* Чтобы подчеркивание текста работало при наведении и на чекбокс и на текст
+и при этом не затрагивало текст placeholder в поле ввода при :hover */
+
+.search-form__pseudo-checkbox:hover + .search-form__label-text {
   text-decoration: underline;
   cursor: pointer;
 }
 
+ .search-form__label-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+} 
+
 .search-form__fieldset-title {
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
+  line-height: 21.6px;
+  margin-bottom: 5px;
 }
 
 .button {
@@ -174,8 +192,8 @@ fieldset {
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
   content: '';
   display: block;
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   background-color: white;
   margin: 1px 0 0 1px;
 }
@@ -185,24 +203,24 @@ fieldset {
   padding: 6px 73.5px;
 }
 
-.search-form__submit-button:active {
+.button:active {
   background-color: #545050;
 }
 
-.search-form__submit-button:hover {
+.button:hover {
   text-decoration: underline;
 }
 
-.search-form__submit-button:focus {
+.button:focus {
   outline: none;
 }
-.search-form__submit-button:focus-visible {
+.button:focus-visible {
   outline: 1px solid white;
   outline-offset: 1px;
 }
 
 .title {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
@@ -214,13 +232,16 @@ fieldset {
 }
 
 .content__details {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .content__list {
   position: relative;
-  height: 298px;
+  block-size: 298px;
   overflow-y: scroll;
+
+  /* По поводу скроллбара, на макете его нет */
+  
   scrollbar-width: none;
   margin-top: 26px;
 }
@@ -233,7 +254,7 @@ fieldset {
   display: block;
   text-decoration: none;
   color: white;
-  margin: 2px
+  margin: 2px;
 }
 
 .content__card-link_current {
@@ -257,7 +278,21 @@ fieldset {
 }
 
 .content__video-card-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.content__video-card-description {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16.2px;
 }
 
 .content__video-card {
@@ -266,18 +301,22 @@ fieldset {
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
+  inline-size: 194px;
+  block-size: 103px;
   object-fit: cover;
-
 }
 
 .content__video-card-description-container {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .more-button {
-  width: 100%;
+  inline-size: 100%;
   padding: 6px 0;
+
+/* Добавил margin для того Чтобы обводка в состоянии :focus-visible
+ была видна целиком */
+
+  margin: 2px;
 }
