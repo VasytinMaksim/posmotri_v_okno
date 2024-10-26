@@ -240,19 +240,18 @@ ol {
   block-size: 298px;
   overflow-x: hidden;
   margin-top: 26px;
+  padding-right: 8px;
 }
 
 /* Стилизация для скроллбара: */
 
 .content__list::-webkit-scrollbar {
   width: 5px;
-  padding: 10px;
 }
 
 .content__list::-webkit-scrollbar-track {
   background-color: #545050;
   border-radius: 30px;
-  
 }
 
 .content__list::-webkit-scrollbar-thumb {
@@ -330,15 +329,11 @@ ol {
 }
 
 .more-button {
-
-  /* Значение inline-size: 99%; так как при 100% обводка кнопки в состоянии :focus-visible
-  закрывается скроллбаром */
-
-  inline-size: 99%;
+  inline-size: 100%;
   padding: 6px 0;
 
   /* Добавил margin для того чтобы обводка в состоянии :focus-visible
   была видна целиком */
   
-  margin: 5px;
+  margin: 2px;
 } 
